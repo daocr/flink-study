@@ -1,5 +1,6 @@
 package com.huilong.mysql;
 
+import org.apache.flink.connector.jdbc.catalog.JdbcCatalog;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableEnvironment;
@@ -49,6 +50,7 @@ public class MysqlConnectors {
 
         // 打印输出
         execute.print();
+
 
     }
 

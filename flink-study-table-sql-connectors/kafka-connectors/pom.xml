@@ -5,11 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.huilong</groupId>
-    <artifactId>format-json</artifactId>
+    <artifactId>kafka-connectors</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>format-json</name>
+    <name>kafka-connectors</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
+
+
 
 </project>

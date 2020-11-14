@@ -17,6 +17,7 @@
     <modules>
         <module>jdbc-connectors</module>
         <module>format-connector</module>
+        <module>kafka-connectors</module>
     </modules>
 
     <name>flink-study-table-sql-connectors</name>

@@ -10,11 +10,21 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+
     <artifactId>format-connector</artifactId>
 
     <packaging>pom</packaging>
 
     <name>format-connector</name>
 
+    <modules>
+        <module>format-apache-avro</module>
+        <module>format-apache-orc</module>
+        <module>format-apache-parquet</module>
+        <module>format-canal-cdc</module>
+        <module>format-csv</module>
+        <module>format-debezium-cdc</module>
+        <module>format-json</module>
+    </modules>
 
 </project>
