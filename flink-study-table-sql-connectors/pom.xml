@@ -17,13 +17,6 @@
     <modules>
         <module>jdbc-connectors</module>
         <module>format-connector</module>
-        <module>format-connector/format-csv</module>
-        <module>format-connector/format-json</module>
-        <module>format-connector/format-apache-avro</module>
-        <module>format-connector/format-debezium-cdc</module>
-        <module>format-connector/format-canal-cdc</module>
-        <module>format-connector/format-apache-parquet</module>
-        <module>format-connector/format-apache-orc</module>
     </modules>
 
     <name>flink-study-table-sql-connectors</name>
