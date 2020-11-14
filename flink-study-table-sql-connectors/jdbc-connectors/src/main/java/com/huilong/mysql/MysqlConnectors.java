@@ -13,7 +13,6 @@ import org.apache.flink.table.api.TableResult;
  */
 public class MysqlConnectors {
 
-
     // https://iteblog.blog.csdn.net/article/details/108656414
 
     private static String ddl = "CREATE TABLE MyUserTable\n" +
@@ -34,7 +33,8 @@ public class MysqlConnectors {
 
     public static void main(String[] args) throws Exception {
 
-        EnvironmentSettings environmentSettings = EnvironmentSettings.newInstance().build();
+        EnvironmentSettings environmentSettings = EnvironmentSettings.newInstance()
+                .build();
         TableEnvironment tableEnvironment = TableEnvironment.create(environmentSettings);
 
         // 注册 表
