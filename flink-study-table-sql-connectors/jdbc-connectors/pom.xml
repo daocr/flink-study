@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.huilong</groupId>
-    <artifactId>mysql-connectors</artifactId>
+    <artifactId>jdbc-connectors</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>mysql-connectors</name>
