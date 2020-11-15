@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mysql:
+    # mysql 镜像
+    image: mysql:latest
+    environment:
+      # 初始化mysql环境变量
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: "123456"
+    # 本机端口：docker内容器端口
+    ports:
+      - "3309:3306"

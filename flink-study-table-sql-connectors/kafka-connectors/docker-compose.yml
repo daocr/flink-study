@@ -1,0 +1,136 @@
+version: "3.8"
+services:
+  redis: # 容器名称
+    image: redis:alpine # 镜像名称
+    ports:
+      - "6379:6379" # 暴露端口 物理机端口:docker 内容器端口
+    networks:
+      - frontend
+    deploy:
+      replicas: 2 # 副本数量
+      update_config:  # 配置应该如何更新服务。用于配置滚动更新。
+        parallelism: 2 # 并行数量
+        failure_action: pause # 更新失败如何处理 rollback：回滚 continue：继续 pause：停止
+        monitor: 5s # 每次任务更新后监控故障的持续时间(ns|us|ms|s|m|h)(默认5s)注意:设置为0将使用默认5s。
+        delay: 10s # 更新一组容器之间的等待时间。
+        max_failure_ratio:   更新期间容忍的故障率。
+        order: stop-first # 更新期间的操作顺序。停止优先(旧任务在启动新任务之前停止)，或开始优先(新任务首先启动，运行的任务短暂重叠)(默认停止优先)注意:仅支持v3.4及更高版本。
+      restart_policy: # 容器退出，如何重启
+        condition: on-failure  none、on-failure或any(默认:any)。
+        delay: 5s # 两次重新启动尝试之间的等待时间，指定为持续时间(默认值:5s)。
+        max_attempts: 3 #在放弃之前尝试重新启动容器的次数(默认:永不放弃)。如果在配置的窗口内重新启动失败，此尝试将不计入配置的最大尝试值。例如，如果最大尝试次数设置为2，并且第一次尝试重启失败，则可能尝试两次以上的重新启动。
+        window: 120s # 决定重启是否成功之前等待的时间，指定为持续时间(默认:立即决定)
+    dns: # 配置 dns
+      - 8.8.8.8
+      - 9.9.9.9
+    dns_search: # dns 搜索域
+      - dc1.example.com
+      - dc2.example.com
+    env_file: # 环境变量 文件
+      - ./common.env
+      - ./apps/web.env
+      - /opt/runtime_opts.env
+    environment: # 配置环境变量
+      - RACK_ENV=development
+      - SHOW=true
+      - SESSION_SECRET
+    expose: # 暴露端口
+      - "3000"
+    depends_on: # 依赖容器的先后启动顺序
+      - redis
+    external_links: # 在使用Docker过程中，我们会有许多单独使用docker run启动的容器，为了使Compose能够连接这些不在docker-compose.yml中定义的容器，我们需要一个特殊的标签，就是external_links，它可以让Compose项目里面的容器连接到那些项目配置外部的容器（前提是外部容器中必须至少有一个容器是连接到与项目内的服务的同一个网络里面）。
+      - redis_1
+    links:
+      - "db"
+      - "db:database"
+      - "redis"
+    healthcheck: ## 健康检查
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    volumes: # 卷轴映射地址
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
+
+
+  db:
+    image: postgres:9.4
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+    deploy:
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - "node.role==manager"
+
+  vote:
+    image: dockersamples/examplevotingapp_vote:before
+    ports:
+      - "5000:80"
+    networks:
+      - frontend
+    depends_on:
+      - redis
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: on-failure
+
+  result:
+    image: dockersamples/examplevotingapp_result:before
+    ports:
+      - "5001:80"
+    networks:
+      - backend
+    depends_on:
+      - db
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  worker:
+    image: dockersamples/examplevotingapp_worker
+    networks:
+      - frontend
+      - backend
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels: [APP=VOTING]
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints:
+          - "node.role==manager"
+
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    stop_grace_period: 1m30s
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints:
+          - "node.role==manager"
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  db-data:

@@ -1,10 +1,12 @@
 package com.huilong.mysql;
 
-import org.apache.flink.connector.jdbc.catalog.JdbcCatalog;
+import org.apache.commons.io.FileUtils;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.TableResult;
+
+import java.io.File;
 
 /**
  * mysql 数据库 Connectors
@@ -12,27 +14,14 @@ import org.apache.flink.table.api.TableResult;
  * @author daocr
  * @date 2020/11/14
  */
-public class MysqlConnectors {
+public class MysqlDDLConnectors {
 
     // https://iteblog.blog.csdn.net/article/details/108656414
 
-    private static String ddl = "CREATE TABLE MyUserTable\n" +
-            "(\n" +
-            "    id     int,\n" +
-            "    name STRING,\n" +
-            "    email    STRING,\n" +
-            "    password STRING,\n" +
-            "    PRIMARY KEY (id) NOT ENFORCED\n" +
-            ")\n" +
-            "WITH (\n" +
-            "    'connector' = 'jdbc',\n" +
-            "    'username' = 'yhl',\n" +
-            "    'password' = '123456',\n" +
-            "    'url' = 'jdbc:mysql://localhost:3306/demo',\n" +
-            "    'table-name' = 'user_info'\n" +
-            ")";
 
     public static void main(String[] args) throws Exception {
+
+        String ddl = FileUtils.readFileToString(new File(MysqlDDLConnectors.class.getResource("/").getPath() + "createMysqlTable.sql"));
 
         EnvironmentSettings environmentSettings = EnvironmentSettings.newInstance()
                 .build();
@@ -40,6 +29,8 @@ public class MysqlConnectors {
 
         // 注册 表
         tableEnvironment.executeSql(ddl);
+
+//        tableEnvironment.executeSql("insert into MyUserTable values (3,'李四','888@qq.com','123password',2)");
 
         // 查询计划
         Table result = tableEnvironment.sqlQuery(
@@ -51,8 +42,5 @@ public class MysqlConnectors {
         // 打印输出
         execute.print();
 
-
     }
-
-
 }
