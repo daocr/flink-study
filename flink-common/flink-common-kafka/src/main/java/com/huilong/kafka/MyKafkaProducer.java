@@ -14,14 +14,7 @@ public class MyKafkaProducer<K, V> {
 
     private KafkaProducer<K, V> kafkaProducer;
 
-    private String servers;
-    private String valueSerializer;
-    private String keySerializer;
-
     public MyKafkaProducer(String servers, String valueSerializer, String keySerializer) {
-        this.servers = servers;
-        this.valueSerializer = valueSerializer;
-        this.keySerializer = keySerializer;
 
         Properties properties = new Properties();
         properties.put("bootstrap.servers", servers);
@@ -38,7 +31,6 @@ public class MyKafkaProducer<K, V> {
         kafkaProducer = new KafkaProducer<K, V>((properties));
 
     }
-
 
 
 }
