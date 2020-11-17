@@ -14,6 +14,8 @@
     <artifactId>table-sql-format-csv</artifactId>
 
     <name>table-sql-format-csv</name>
+    <url>http://www.example.com</url>
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-csv -->
         <dependency>

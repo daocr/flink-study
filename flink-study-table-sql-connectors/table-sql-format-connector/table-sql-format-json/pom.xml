@@ -14,6 +14,7 @@
 
     <name>table-sql-format-json</name>
 
+    <url>http://www.example.com</url>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-json -->
         <dependency>

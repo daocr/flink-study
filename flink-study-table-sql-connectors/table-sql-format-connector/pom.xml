@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
 
     <name>table-sql-format-connector</name>
+    <url>http://www.example.com</url>
 
     <modules>
         <module>table-sql-format-apache-avro</module>

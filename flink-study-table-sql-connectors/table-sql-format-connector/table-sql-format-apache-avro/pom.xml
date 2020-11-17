@@ -13,6 +13,7 @@
     <artifactId>table-sql-format-apache-avro</artifactId>
 
     <name>table-sql-format-apache-avro</name>
+    <url>http://www.example.com</url>
 
     <dependencies>
         <dependency>
