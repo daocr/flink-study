@@ -18,6 +18,7 @@
         <module>data-set-api</module>
         <module>data-types-and-serialization</module>
         <module>table-api-and-sql</module>
+        <module>flink-cep</module>
     </modules>
     <name>flink study 1.11</name>
     <description>spring 1.11 版本，入门学习</description>
@@ -106,6 +107,8 @@
                 <version>${flink.version}</version>
                 <!--                <scope>provided</scope>-->
             </dependency>
+
+            <!--  流处理-->
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
@@ -138,6 +141,14 @@
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+
+            <!--   cep  -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-cep_2.12</artifactId>
                 <version>${flink.version}</version>
             </dependency>
 
