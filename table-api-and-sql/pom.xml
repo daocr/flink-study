@@ -3,6 +3,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
 
     <parent>
         <artifactId>flink-study</artifactId>
@@ -15,5 +17,17 @@
     <name>table-api-and-sql</name>
 
     <url>http://www.example.com</url>
+
+    <modules>
+        <module>table-api-and-sql-environment</module>
+        <module>table-api-and-sql-catalog</module>
+        <module>table-api-and-sql-query</module>
+        <module>table-api-and-sql-view</module>
+        <module>table-api-and-sql-dynamic-table</module>
+        <module>table-api-and-sql-temporal-table</module>
+        <module>table-api-and-sql-detecting-patterns</module>
+        <module>table-api</module>
+        <module>table-sql</module>
+    </modules>
 
 </project>
