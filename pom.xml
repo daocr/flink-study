@@ -16,6 +16,8 @@
         <module>data-stream-connectors</module>
         <module>data-stream-api</module>
         <module>data-set-api</module>
+        <module>data-types-and-serialization</module>
+        <module>table-api-and-sql</module>
     </modules>
     <name>flink study 1.11</name>
     <description>spring 1.11 版本，入门学习</description>
