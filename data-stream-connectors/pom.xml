@@ -10,7 +10,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-
     <packaging>pom</packaging>
 
     <artifactId>data-stream-connectors</artifactId>
@@ -23,6 +22,10 @@
         <module>data-stream-kafka-connector</module>
         <module>data-stream-apache-cassandra-connector</module>
         <module>data-stream-hadoop-fileSystem-connector</module>
+        <module>data-stream-streaming-file-sink</module>
+        <module>data-stream-elasticsearch-connector</module>
+        <module>data-stream-rabbitMQ-connector</module>
+        <module>data-stream-jdbc-connector</module>
     </modules>
 
 </project>
