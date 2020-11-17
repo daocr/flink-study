@@ -5,16 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
         <groupId>com.huilong</groupId>
+        <artifactId>table-sql-format-connector</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
+    <artifactId>table-sql-format-debezium-cdc</artifactId>
 
-    <name>flink-common</name>
+    <name>table-sql-format-debezium-cdc</name>
+
     <url>http://www.example.com</url>
-
-    <packaging>pom</packaging>
 
 </project>

@@ -15,9 +15,13 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>jdbc-connectors</module>
-        <module>format-connector</module>
-        <module>kafka-connectors</module>
+        <module>table-sql-jdbc-connectors</module>
+        <module>table-sql-format-connector</module>
+        <module>table-sql-kafka-connectors</module>
+        <module>table-sql-elasticsearch-connector</module>
+        <module>table-sql-hbase-connector</module>
+        <module>table-sql-data-gen-connector</module>
+        <module>table-sql-file-system-connector</module>
     </modules>
 
     <name>flink-study-table-sql-connectors</name>

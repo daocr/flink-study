@@ -10,11 +10,19 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
-
-    <name>flink-common</name>
-    <url>http://www.example.com</url>
 
     <packaging>pom</packaging>
+
+    <artifactId>data-stream-connectors</artifactId>
+
+    <name>data-stream-connectors</name>
+
+    <url>http://www.example.com</url>
+
+    <modules>
+        <module>data-stream-kafka-connector</module>
+        <module>data-stream-apache-cassandra-connector</module>
+        <module>data-stream-hadoop-fileSystem-connector</module>
+    </modules>
 
 </project>

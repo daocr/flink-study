@@ -10,11 +10,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
 
-    <name>flink-common</name>
-    <url>http://www.example.com</url>
+    <artifactId>data-set-connectors</artifactId>
 
-    <packaging>pom</packaging>
+    <name>data-set-connectors</name>
 
 </project>

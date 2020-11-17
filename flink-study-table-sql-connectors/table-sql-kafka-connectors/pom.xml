@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
+        <artifactId>flink-study-table-sql-connectors</artifactId>
         <groupId>com.huilong</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
+    <artifactId>table-sql-kafka-connectors</artifactId>
 
-    <name>flink-common</name>
+    <name>table-sql-kafka-connectors</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
-    <packaging>pom</packaging>
 
 </project>

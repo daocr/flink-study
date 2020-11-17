@@ -5,16 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
+        <artifactId>flink-study-table-sql-connectors</artifactId>
         <groupId>com.huilong</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
+    <artifactId>table-sql-data-gen-connector</artifactId>
 
-    <name>flink-common</name>
+
+    <name>table-sql-data-gen-connector</name>
     <url>http://www.example.com</url>
-
-    <packaging>pom</packaging>
 
 </project>

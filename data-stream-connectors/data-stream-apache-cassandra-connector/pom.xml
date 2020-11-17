@@ -5,16 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
         <groupId>com.huilong</groupId>
+        <artifactId>data-stream-connectors</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
+    <artifactId>data-stream-apache-cassandra-connector</artifactId>
 
-    <name>flink-common</name>
+    <name>data-stream-apache-cassandra-connector</name>
     <url>http://www.example.com</url>
-
-    <packaging>pom</packaging>
 
 </project>

@@ -5,16 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
         <groupId>com.huilong</groupId>
+        <artifactId>table-sql-format-connector</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
+    <artifactId>table-sql-format-apache-avro</artifactId>
 
-    <name>flink-common</name>
-    <url>http://www.example.com</url>
+    <name>table-sql-format-apache-avro</name>
 
-    <packaging>pom</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-avro</artifactId>
+            <version>1.11.2</version>
+        </dependency>
+    </dependencies>
 
 </project>
