@@ -10,15 +10,18 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flink-common</artifactId>
-
-    <name>flink-common</name>
-    <url>http://www.example.com</url>
-
     <packaging>pom</packaging>
 
-    <modules>
-        <module>flink-common-kafka</module>
-    </modules>
+    <artifactId>data-set-api</artifactId>
 
+    <name>data-set-api</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <modules>
+        <module>data-set-api-operators</module>
+        <module>data-set-api-sources</module>
+        <module>data-set-api-sinks</module>
+        <module>data-set-api-execution</module>
+    </modules>
 </project>

@@ -5,16 +5,19 @@
 
     <groupId>com.huilong</groupId>
     <artifactId>flink-study</artifactId>
-    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
     <modules>
         <module>flink-study-table-sql-connectors</module>
         <module>flink-common</module>
         <module>data-set-connectors</module>
         <module>data-stream-connectors</module>
         <module>data-stream-api</module>
+        <module>data-set-api</module>
     </modules>
-    <name>flink 1.11</name>
+    <name>flink study 1.11</name>
     <description>spring 1.11 版本，入门学习</description>
 
 

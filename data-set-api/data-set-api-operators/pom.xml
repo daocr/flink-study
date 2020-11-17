@@ -5,20 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
         <groupId>com.huilong</groupId>
+        <artifactId>data-set-api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <artifactId>data-set-api-operators</artifactId>
 
-    <artifactId>flink-common</artifactId>
-
-    <name>flink-common</name>
+    <name>data-set-api-operators</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>flink-common-kafka</module>
-    </modules>
 
 </project>

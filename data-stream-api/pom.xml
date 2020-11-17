@@ -25,6 +25,7 @@
         <module>data-stream-api-sinks</module>
         <module>data-stream-api-window</module>
         <module>data-stream-ap-sources</module>
+        <module>data-stream-api-side-outputs</module>
     </modules>
 
 </project>
