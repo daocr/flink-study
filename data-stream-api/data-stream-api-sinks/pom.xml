@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>flink-study</artifactId>
+        <artifactId>data-stream-api</artifactId>
         <groupId>com.huilong</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <artifactId>data-stream-api-sinks</artifactId>
 
-    <artifactId>data-set-connectors</artifactId>
-
-    <name>data-set-connectors</name>
-
+    <name>data-stream-api-sinks</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
 </project>

@@ -3,17 +3,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
     <parent>
-        <artifactId>flink-study</artifactId>
+        <artifactId>data-stream-api</artifactId>
         <groupId>com.huilong</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <artifactId>data-stream-api-event-time</artifactId>
 
-    <artifactId>data-set-connectors</artifactId>
-
-    <name>data-set-connectors</name>
-
+    <name>data-stream-api-event-time</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
+    <modules>
+        <module>data-stream-api-event-time-watermark</module>
+    </modules>
+
 </project>

@@ -4,16 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>flink-study</artifactId>
-        <groupId>com.huilong</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+    <groupId>com.huilong</groupId>
+    <artifactId>data-stream-api-event-time-watermark</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-
-    <artifactId>data-set-connectors</artifactId>
-
-    <name>data-set-connectors</name>
-
+    <name>data-stream-api-event-time-watermark</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
 </project>

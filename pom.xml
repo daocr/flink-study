@@ -12,6 +12,7 @@
         <module>flink-common</module>
         <module>data-set-connectors</module>
         <module>data-stream-connectors</module>
+        <module>data-stream-api</module>
     </modules>
     <name>flink 1.11</name>
     <description>spring 1.11 版本，入门学习</description>
