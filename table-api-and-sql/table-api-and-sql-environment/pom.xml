@@ -12,8 +12,16 @@
 
     <artifactId>table-api-and-sql-environment</artifactId>
 
+    <packaging>pom</packaging>
+
     <name>table-api-and-sql-environment</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
+
+    <modules>
+        <module>flink-environment</module>
+        <module>blink-environment</module>
+    </modules>
+
 
 </project>

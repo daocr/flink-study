@@ -5,57 +5,48 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
+        <artifactId>table-api-and-sql-environment</artifactId>
         <groupId>com.huilong</groupId>
-        <artifactId>table-sql-format-connector</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>table-sql-format-json</artifactId>
+    <artifactId>flink-environment</artifactId>
 
-    <name>table-sql-format-json</name>
-
+    <name>flink-environment</name>
+    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-json -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-json</artifactId>
-            <version>1.11.2</version>
-        </dependency>
 
-        <!--       核心依赖     -->
+
+    <dependencies>
+        <!--        基础依赖-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-clients_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
         </dependency>
 
-        <!--        flink table 依赖-->
+        <!-- 根据 编程语言的不同，下面两个jar 包 二选一  -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
+            <artifactId>flink-table-api-java-bridge_2.11</artifactId>
+            <version>${flink.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
-        </dependency>
+        <!--        flink 执行计划-->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>
-        </dependency>
-
     </dependencies>
 </project>

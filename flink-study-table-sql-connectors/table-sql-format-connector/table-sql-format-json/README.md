@@ -50,7 +50,7 @@
 
 <dependency>
     <groupId>org.apache.flink</groupId>
-    <artifactId>flink-table-api-scala-bridge_${scala.binary.version}</artifactId>
+     <artifactId>flink-table-api-java-bridge_${scala.binary.version}</artifactId>
 </dependency>
 
 <dependency>
