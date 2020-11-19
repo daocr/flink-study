@@ -1,6 +1,5 @@
 package com.huilong.environnment;
 
-import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableEnvironment;
 
@@ -10,10 +9,13 @@ import org.apache.flink.table.api.TableEnvironment;
  * @author daocr
  * @date 2020/11/18
  */
-public class BlinkBatchQuery {
+public class BlinkBatchTableQuery {
 
     public static void main(String[] args) {
-        ExecutionEnvironment executionEnvironment = ExecutionEnvironment.getExecutionEnvironment();
+        EnvironmentSettings bbSettings = EnvironmentSettings.newInstance().useBlinkPlanner().inBatchMode().build();
+        TableEnvironment bbTableEnv = TableEnvironment.create(bbSettings);
+
+
 
 
     }

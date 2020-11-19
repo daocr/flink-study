@@ -10,7 +10,7 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
  * @author daocr
  * @date 2020/11/18
  */
-public class FlinkStreamQuery {
+public class FlinkStreamTableQuery {
 
     public static void main(String[] args) {
 

@@ -10,7 +10,7 @@ import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
  * @author daocr
  * @date 2020/11/18
  */
-public class BlinkStreamQuery {
+public class BlinkStreamTableQuery {
     public static void main(String[] args) {
         StreamExecutionEnvironment bsEnv = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettings bsSettings = EnvironmentSettings.newInstance().useBlinkPlanner().inStreamingMode().build();

@@ -19,6 +19,7 @@
 
     <modules>
         <module>flink-common-kafka</module>
+        <module>flink-common-data</module>
     </modules>
 
 </project>
