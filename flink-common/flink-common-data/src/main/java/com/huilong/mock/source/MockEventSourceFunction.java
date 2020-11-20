@@ -14,9 +14,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Slf4j
 public class MockEventSourceFunction implements SourceFunction<MockOrderEvent> {
 
-    private Duration sleepMin = Duration.ofMillis(5);
-    private Duration sleepMax = Duration.ofMillis(50);
-
     public MockEventSourceFunction() {
 
     }
@@ -26,6 +23,19 @@ public class MockEventSourceFunction implements SourceFunction<MockOrderEvent> {
         this.sleepMax = sleepMax;
     }
 
+    private Duration sleepMin = Duration.ofMillis(5);
+    private Duration sleepMax = Duration.ofMillis(50);
+
+
+    /**
+     * 是否显示生产的数据
+     */
+    private boolean showGenData = false;
+
+    private List<String> eventName = Arrays.asList("电视", "手机", "电脑", "相机");
+    private List<Integer> userIds = Arrays.asList(11, 22, 33, 44, 55, 66, 77);
+
+
     @Override
     public void run(SourceFunction.SourceContext<MockOrderEvent> sourceContext) throws Exception {
 
@@ -34,8 +44,6 @@ public class MockEventSourceFunction implements SourceFunction<MockOrderEvent> {
 
         AtomicLong eventId = new AtomicLong();
 
-        List<String> eventName = Arrays.asList("电视", "手机", "电脑", "相机");
-        List<Integer> userIds = Arrays.asList(11, 22, 33, 44, 55, 66, 77);
 
         while (true) {
 
@@ -47,6 +55,11 @@ public class MockEventSourceFunction implements SourceFunction<MockOrderEvent> {
             mockEvent.setAmount(current.nextInt(1, 1000));
             int userIdIndex = current.nextInt(1, userIds.size() + 1) - 1;
             mockEvent.setUserId(userIds.get(userIdIndex));
+
+            if (showGenData) {
+                log.info("gen data : {}", mockEvent);
+            }
+
             sourceContext.collect(mockEvent);
 
             long sleep = current.nextLong(sleepMin.toMillis(), sleepMax.toMillis());
@@ -62,4 +75,51 @@ public class MockEventSourceFunction implements SourceFunction<MockOrderEvent> {
     public void cancel() {
 
     }
+
+    public boolean isShowGenData() {
+        return showGenData;
+    }
+
+    public MockEventSourceFunction setShowGenData(boolean showGenData) {
+        this.showGenData = showGenData;
+        return this;
+    }
+
+    public Duration getSleepMin() {
+        return sleepMin;
+    }
+
+    public MockEventSourceFunction setSleepMin(Duration sleepMin) {
+        this.sleepMin = sleepMin;
+        return this;
+    }
+
+    public Duration getSleepMax() {
+        return sleepMax;
+    }
+
+    public MockEventSourceFunction setSleepMax(Duration sleepMax) {
+        this.sleepMax = sleepMax;
+        return this;
+    }
+
+    public List<String> getEventName() {
+        return eventName;
+    }
+
+    public MockEventSourceFunction setEventName(List<String> eventName) {
+        this.eventName = eventName;
+        return this;
+    }
+
+    public List<Integer> getUserIds() {
+        return userIds;
+    }
+
+    public MockEventSourceFunction setUserIds(List<Integer> userIds) {
+        this.userIds = userIds;
+        return this;
+    }
+
+
 }
