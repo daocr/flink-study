@@ -53,12 +53,13 @@ public class MyAggregateFunction {
             1、用户id和 商品名称 进行分组
             2、每10s 统计一次
          */
-        WindowedStream<MockOrderEvent, Integer, TimeWindow> mockOrderEventIntegerTimeWindowWindowedStream = mockEventDataStreamSource.
+        WindowedStream<MockOrderEvent, Integer, TimeWindow> timeWindowStream = mockEventDataStreamSource.
                 keyBy(MockOrderEvent::getUserId)
                 .timeWindow(Time.seconds(10));
 
+
         // 开始集合计算
-        SingleOutputStreamOperator<MockOrderEvent> aggregate = mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction());
+        SingleOutputStreamOperator<MockOrderEvent> aggregate = timeWindowStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction());
         aggregate.print();
 
         // 1、普通集合计算
@@ -67,7 +68,7 @@ public class MyAggregateFunction {
 
 
         // 2、带窗口的集合计算
-        SingleOutputStreamOperator<Object> aggregate2 = mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction(), new MockOrderEventIntegerTimeWindowWindowFunction());
+        SingleOutputStreamOperator<Object> aggregate2 = timeWindowStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction(), new MockOrderEventIntegerTimeWindowWindowFunction());
 
 
     /*    //3、对聚合后的数据，进行整理
