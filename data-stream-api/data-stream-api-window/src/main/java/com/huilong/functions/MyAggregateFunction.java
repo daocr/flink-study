@@ -3,6 +3,7 @@ package com.huilong.functions;
 import com.huilong.mock.MockOrderEvent;
 import com.huilong.mock.source.MockEventSourceFunction;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -17,6 +18,7 @@ import org.apache.flink.util.Collector;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -57,20 +59,20 @@ public class MyAggregateFunction {
 
         // 开始集合计算
         SingleOutputStreamOperator<MockOrderEvent> aggregate = mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction());
-
+        aggregate.print();
 
         // 1、普通集合计算
 //        SingleOutputStreamOperator<MockOrderEvent> aggregate1 = mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction());
-//        aggregate1.print();
+//
 
 
-//        // 2、带窗口的集合计算
-//        SingleOutputStreamOperator<Object> aggregate2 = mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction(), new MockOrderEventIntegerTimeWindowWindowFunction());
+        // 2、带窗口的集合计算
+        SingleOutputStreamOperator<Object> aggregate2 = mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction(), new MockOrderEventIntegerTimeWindowWindowFunction());
 
 
-        //3、对聚合后的数据，进行整理
+    /*    //3、对聚合后的数据，进行整理
         mockOrderEventIntegerTimeWindowWindowedStream.aggregate(new MockOrderEventMockOrderEventMockOrderEventAggregateFunction(), new MockOrderEventIntegerTimeWindowProcessWindowFunction());
-
+*/
 
         env.execute();
 
@@ -116,11 +118,15 @@ public class MyAggregateFunction {
      */
     private static class MockOrderEventIntegerTimeWindowWindowFunction implements WindowFunction<MockOrderEvent, Object, Integer, TimeWindow> {
         @Override
-        public void apply(Integer integer, TimeWindow window, Iterable<MockOrderEvent> input, Collector<Object> out) throws Exception {
+        public void apply(Integer integer, TimeWindow timeWindow, Iterable<MockOrderEvent> input, Collector<Object> out) throws Exception {
+
+            String start = DateFormatUtils.format(new Date(timeWindow.getStart()), "yyyy-MM-dd HH:mm:ss");
+            String end = DateFormatUtils.format(new Date(timeWindow.getEnd()), "yyyy-MM-dd HH:mm:ss");
+
 
             List<MockOrderEvent> collect = StreamSupport.stream(input.spliterator(), false).collect(Collectors.toList());
 
-            log.info("size  : {}  content: {}", collect.size(), collect);
+            log.info("start: {} end: {} size  : {}  content: {}", start, end, collect.size(), collect);
 
         }
     }
