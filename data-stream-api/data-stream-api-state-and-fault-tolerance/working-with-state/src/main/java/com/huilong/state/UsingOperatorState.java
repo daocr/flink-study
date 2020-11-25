@@ -33,7 +33,9 @@ public class UsingOperatorState {
         // 重试 策略
         env.setRestartStrategy(RestartStrategies.fixedDelayRestart(3, 2000));
         env.enableCheckpointing(1000, CheckpointingMode.AT_LEAST_ONCE);
-        env.setStateBackend(new FsStateBackend(UsingOperatorState.class.getResource("/") + "resources/checkpoint", true));
+        FsStateBackend fsStateBackend = new FsStateBackend(UsingOperatorState.class.getResource("/") + "resources/checkpoint", true);
+//        fsStateBackend.resolveCheckpoint()
+        env.setStateBackend(fsStateBackend);
 
         MockEventSourceFunction mockEventSourceFunction = new MockEventSourceFunction()
                 .setSleepMin(Duration.ofMillis(50))
