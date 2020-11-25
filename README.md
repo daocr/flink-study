@@ -1,4 +1,9 @@
+[TOC]
+
+
+
 # flink-study
+
 flink  study demo
 
 
@@ -17,56 +22,40 @@ mvn archetype:generate                               \
 ### [data set api](https://github.com/daocr/flink-study/tree/feature/1.11/data-set-api)
 
 
-
-- └── [data set api](https://github.com/daocr/flink-study/tree/feature/1.11/data-set-api)
-  - ├── data-set-api-execution
-  - ├── data-set-api-operators
-  - ├── data-set-api-sinks
-  - └── data-set-api-sources
-
-```
-└── data-set-api
-   ├── data-set-api-execution
-   ├── data-set-api-operators
-   ├── data-set-api-sinks
-   └── data-set-api-sources
-```
+-  [data set api](https://github.com/daocr/flink-study/tree/feature/1.11/data-set-api)
+  - data-set-api-execution
+  - data-set-api-operators
+  - data-set-api-sinks
+  - data-set-api-sources
 
 #### data-set-connectors
-```
-└── flink-study
-   ├── data-set-connectors
-```
+-  flink-study
+  - data-set-connectors
 
 #### flink-cep
-```
-└── flink-study
-   ├── data-set-connectors
-```
+-  flink-study
+  -  data-set-connectors
+
 #### serialization
-```
-└── flink-study
-   ├── data-types-and-serialization
-```
+-  flink-study
+  -  data-types-and-serialization
 
 #### data-stream-api
-```
-└── data-stream-api
-   ├── data-stream-ap-sources
-   ├── data-stream-api-event-time
-   │   └── data-stream-api-event-time-watermark
-   ├── data-stream-api-side-outputs
-   ├── data-stream-api-sinks
-   ├── data-stream-api-state-and-fault-tolerance
-   │   ├── broadcast-state-pattern
-   │   ├── checkpoint
-   │   ├── queryable-stated-beta
-   │   ├── state-backends
-   │   │   └── state-backends-memory
-   │   └── working-with-state
-   ├── data-stream-api-window
-   └── data-stream-operators
-```
+- └── data-stream-api
+  -    ├── data-stream-ap-sources
+  -    ├── data-stream-api-event-time
+  -    │   └── data-stream-api-event-time-watermark
+  -    ├── data-stream-api-side-outputs
+  -    ├── data-stream-api-sinks
+  -    ├── data-stream-api-state-and-fault-tolerance
+  -    │   ├── broadcast-state-pattern
+  -    │   ├── checkpoint
+  -    │   ├── queryable-stated-beta
+  -    │   ├── state-backends
+  -    │   │   └── state-backends-memory
+  -    │   └── working-with-state
+  -    ├── data-stream-api-window
+  -    └── data-stream-operators
 
 #### data-stream-connectors
 ```
@@ -80,7 +69,8 @@ mvn archetype:generate                               \
    └── data-stream-streaming-file-sink
 ```
 
-#### 
+
+
 ```
 └── flink-study-table-sql-connectors
    ├── table-sql-data-gen-connector
