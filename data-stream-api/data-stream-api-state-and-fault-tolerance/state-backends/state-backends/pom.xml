@@ -5,17 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>data-stream-api-state-and-fault-tolerance</artifactId>
+        <artifactId>state-backends</artifactId>
         <groupId>com.huilong</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>working-with-state</artifactId>
+    <artifactId>state-backends-memory</artifactId>
 
-    <name>working-with-state</name>
-    <!-- FIXME change it to the project's website -->
+
+    <name>state-backends-memory</name>
+
     <url>http://www.example.com</url>
-
 
     <dependencies>
         <!--        基础依赖-->
@@ -46,5 +46,5 @@
         </dependency>
 
     </dependencies>
-    
+
 </project>
