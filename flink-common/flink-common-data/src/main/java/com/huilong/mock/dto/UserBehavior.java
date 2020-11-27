@@ -1,4 +1,4 @@
-package com.huilong.mock;
+package com.huilong.mock.dto;
 
 import lombok.Data;
 
