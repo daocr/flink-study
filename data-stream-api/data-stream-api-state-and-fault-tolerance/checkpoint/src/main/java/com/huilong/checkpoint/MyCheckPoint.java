@@ -1,6 +1,6 @@
 package com.huilong.checkpoint;
 
-import com.huilong.mock.MockOrderEvent;
+import com.huilong.mock.dto.MockOrderEvent;
 import com.huilong.mock.source.MockEventSourceFunction;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.restartstrategy.RestartStrategies;

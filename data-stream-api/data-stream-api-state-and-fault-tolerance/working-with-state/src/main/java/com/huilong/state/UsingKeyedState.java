@@ -1,6 +1,6 @@
 package com.huilong.state;
 
-import com.huilong.mock.MockOrderEvent;
+import com.huilong.mock.dto.MockOrderEvent;
 import com.huilong.mock.source.MockEventSourceFunction;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.api.common.state.StateTtlConfig;

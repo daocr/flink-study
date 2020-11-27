@@ -1,6 +1,6 @@
 package com.huilong.broadcast;
 
-import com.huilong.mock.MockOrderEvent;
+import com.huilong.mock.dto.MockOrderEvent;
 import com.huilong.mock.source.MockEventSourceFunction;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;

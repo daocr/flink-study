@@ -1,7 +1,6 @@
 package com.huilong.window.time;
 
-import com.huilong.mock.MockOrderEvent;
-import com.huilong.mock.source.MockEventSourceFunction;
+import com.huilong.mock.dto.MockOrderEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -15,7 +14,6 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ThreadLocalRandom;
