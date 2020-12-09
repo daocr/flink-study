@@ -1,6 +1,5 @@
 package com.huilong.catalog;
 
-import org.apache.flink.connector.jdbc.catalog.JdbcCatalog;
 import org.apache.flink.connector.jdbc.catalog.JdbcCatalogUtils;
 import org.apache.flink.connector.jdbc.catalog.PostgresCatalog;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -54,30 +53,30 @@ public class CatalogApi {
         Stream.of(databases).forEach(e -> System.out.println("\t" + e));
         System.out.println("--------------------- :");
 //
-//        tEnv.useDatabase(defaultDatabase);
-//        System.out.println("show tables :");
-//        String[] tables = tEnv.listTables(); // 也可以使用  postgresCatalog.listTables(defaultDatabase);
-//        Stream.of(tables).forEach(e -> System.out.println("\t" + e));
-//
-//        System.out.println("show functions :");
-//        String[] functions = tEnv.listFunctions();
-//        Stream.of(functions).forEach(e -> System.out.println("\t" + e));
+        tEnv.useDatabase(defaultDatabase);
+        System.out.println("show tables :");
+        String[] tables = tEnv.listTables(); // 也可以使用  postgresCatalog.listTables(defaultDatabase);
+        Stream.of(tables).forEach(e -> System.out.println("\t" + e));
 
-//        CatalogBaseTable catalogBaseTable = postgresCatalog.getTable(new ObjectPath(
-//                defaultDatabase,
-//                "emp"));
-//
-//        TableSchema tableSchema = catalogBaseTable.getSchema();
-//        System.out.println("tableSchema --------------------- :");
-//        System.out.println(tableSchema);
+        System.out.println("show functions :");
+        String[] functions = tEnv.listFunctions();
+        Stream.of(functions).forEach(e -> System.out.println("\t" + e));
 
-        tEnv.executeSql("select * from dept").print();
+        CatalogBaseTable catalogBaseTable = postgresCatalog.getTable(new ObjectPath(
+                defaultDatabase,
+                "emp"));
 
-//        CloseableIterator<Row> collect = tEnv.sqlQuery("select * from dept")
-//                .execute()
-//                .collect();
-//
-//        collect.forEachRemaining(e -> System.out.println("\t" + e));
+        TableSchema tableSchema = catalogBaseTable.getSchema();
+
+        System.out.println("tableSchema --------------------- :");
+        System.out.println(tableSchema);
+
+
+        CloseableIterator<Row> collect = tEnv.sqlQuery("select * from dept")
+                .execute()
+                .collect();
+
+        collect.forEachRemaining(e -> System.out.println("\t" + e));
 
 //
 //        tEnv.executeSql("insert into table1 values (3,'c')");
