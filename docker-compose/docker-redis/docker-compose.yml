@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  reids:
+    image: "redis:6.0"
+    ports:
+      - 6379:6379
+    container_name: redis
+    hostname: "redis_6_0"
