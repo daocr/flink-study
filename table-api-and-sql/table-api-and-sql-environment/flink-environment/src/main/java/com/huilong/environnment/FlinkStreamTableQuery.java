@@ -2,6 +2,7 @@ package com.huilong.environnment;
 
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
+import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 /**
@@ -16,9 +17,10 @@ public class FlinkStreamTableQuery {
 
         EnvironmentSettings fsSettings = EnvironmentSettings.newInstance().useOldPlanner().inStreamingMode().build();
         StreamExecutionEnvironment fsEnv = StreamExecutionEnvironment.getExecutionEnvironment();
-        StreamTableEnvironment fsTableEnv = StreamTableEnvironment.create(fsEnv, fsSettings);
+//        StreamTableEnvironment fsTableEnv = StreamTableEnvironment.create(fsEnv, fsSettings);
 
-        // or TableEnvironment fsTableEnv = TableEnvironment.create(fsSettings);
+        TableEnvironment fsTableEnv = TableEnvironment.create(fsSettings);
+
 
 
     }
